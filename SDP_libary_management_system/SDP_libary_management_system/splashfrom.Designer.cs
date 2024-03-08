@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(splashfrom));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Myprogress = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,13 +61,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Powered By Group-(06)";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(139, 252);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(579, 31);
-            this.progressBar1.TabIndex = 2;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -77,6 +72,17 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // Myprogress
+            // 
+            this.Myprogress.Location = new System.Drawing.Point(139, 252);
+            this.Myprogress.Name = "Myprogress";
+            this.Myprogress.Size = new System.Drawing.Size(579, 31);
+            this.Myprogress.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // splashfrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -84,12 +90,13 @@
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(859, 473);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.Myprogress);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "splashfrom";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.splashfrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -100,8 +107,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ProgressBar Myprogress;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

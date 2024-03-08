@@ -26,5 +26,24 @@ namespace SDP_libary_management_system
         {
 
         }
+        int startpoint = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            startpoint += 1;
+            Myprogress.Value = startpoint;
+            if(Myprogress.Value== 100)
+            {
+                Myprogress.Value = 0;
+                timer1.Stop();
+                LoginForm log = new LoginForm();
+                log.Show();
+                this.Hide();
+            }
+        }
+
+        private void splashfrom_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }

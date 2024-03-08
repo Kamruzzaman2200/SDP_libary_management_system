@@ -16,5 +16,10 @@ namespace SDP_libary_management_system
         {
             InitializeComponent();
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
