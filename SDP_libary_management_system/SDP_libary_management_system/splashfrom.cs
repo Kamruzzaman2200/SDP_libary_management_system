@@ -30,10 +30,11 @@ namespace SDP_libary_management_system
         private void timer1_Tick(object sender, EventArgs e)
         {
             startpoint += 1;
-            Myprogress.Value = startpoint;
-            if(Myprogress.Value== 100)
+            bunifuProgressBar1.Value = startpoint;
+            Percentage.Text = "" + startpoint;
+            if(bunifuProgressBar1.Value== 100)
             {
-                Myprogress.Value = 0;
+                bunifuProgressBar1.Value = 0;
                 timer1.Stop();
                 LoginForm log = new LoginForm();
                 log.Show();
@@ -44,6 +45,16 @@ namespace SDP_libary_management_system
         private void splashfrom_Load(object sender, EventArgs e)
         {
             timer1.Start();
+        }
+
+        private void Myprogress_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuProgressBar1_progressChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
