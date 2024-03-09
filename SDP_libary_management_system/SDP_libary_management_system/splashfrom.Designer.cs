@@ -103,11 +103,11 @@
             // 
             this.bunifuProgressBar1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuProgressBar1.BorderRadius = 5;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(-3, 572);
+            this.bunifuProgressBar1.Location = new System.Drawing.Point(-3, 573);
             this.bunifuProgressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuProgressBar1.MaximumValue = 100;
             this.bunifuProgressBar1.Name = "bunifuProgressBar1";
-            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.Crimson;
+            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.LavenderBlush;
             this.bunifuProgressBar1.Size = new System.Drawing.Size(979, 21);
             this.bunifuProgressBar1.TabIndex = 5;
             this.bunifuProgressBar1.Value = 0;
@@ -129,13 +129,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Eras Bold ITC", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(318, 276);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(344, 35);
+            this.label4.Size = new System.Drawing.Size(342, 33);
             this.label4.TabIndex = 7;
             this.label4.Text = "Powered By Group-(06)";
             // 
@@ -203,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(972, 593);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);

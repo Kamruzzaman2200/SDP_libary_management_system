@@ -10,28 +10,26 @@ using System.Windows.Forms;
 
 namespace SDP_libary_management_system
 {
-    public partial class LoginForm : Form
+    public partial class StudentFrom : Form
     {
-        public LoginForm()
+        public StudentFrom()
         {
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm main = new MainForm();
-            main.Show();
+
         }
     }
 }

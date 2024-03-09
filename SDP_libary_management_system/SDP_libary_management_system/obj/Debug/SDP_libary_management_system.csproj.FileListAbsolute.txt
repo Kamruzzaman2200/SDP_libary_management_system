@@ -10,3 +10,5 @@ D:\BUBT Project\SDP_libary_management_system\SDP_libary_management_system\obj\De
 D:\BUBT Project\SDP_libary_management_system\SDP_libary_management_system\obj\Debug\SDP_libary_management_system.csproj.GenerateResource.Cache
 D:\BUBT Project\SDP_libary_management_system\SDP_libary_management_system\obj\Debug\SDP_libary_management_system.exe
 D:\BUBT Project\SDP_libary_management_system\SDP_libary_management_system\obj\Debug\SDP_libary_management_system.pdb
+D:\BUBT Project\SDP_libary_management_system\SDP_libary_management_system\obj\Debug\SDP_libary_management_system.MainForm.resources
+D:\BUBT Project\SDP_libary_management_system\SDP_libary_management_system\obj\Debug\SDP_libary_management_system.StudentFrom.resources
