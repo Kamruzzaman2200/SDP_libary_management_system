@@ -51,5 +51,12 @@ namespace SDP_libary_management_system
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StudentFrom student = new StudentFrom();
+            student.Show();
+            this.Hide();
+        }
     }
 }
