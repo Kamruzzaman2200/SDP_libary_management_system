@@ -16,5 +16,25 @@ namespace SDP_libary_management_system
         {
             InitializeComponent();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuMaterialTextbox4_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Book_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
