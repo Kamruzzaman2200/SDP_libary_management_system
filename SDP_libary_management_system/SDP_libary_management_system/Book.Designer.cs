@@ -130,6 +130,7 @@
             this.bunifuMaterialTextbox1.TabIndex = 25;
             this.bunifuMaterialTextbox1.Text = "bunifuMaterialTextbox1";
             this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuMaterialTextbox1.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox1_OnValueChanged);
             // 
             // label3
             // 
@@ -155,6 +156,7 @@
             this.label4.Size = new System.Drawing.Size(86, 26);
             this.label4.TabIndex = 27;
             this.label4.Text = "Author";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // bunifuMaterialTextbox2
             // 
@@ -175,6 +177,7 @@
             this.bunifuMaterialTextbox2.TabIndex = 28;
             this.bunifuMaterialTextbox2.Text = "bunifuMaterialTextbox2";
             this.bunifuMaterialTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuMaterialTextbox2.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox2_OnValueChanged);
             // 
             // bunifuMaterialTextbox3
             // 
@@ -195,6 +198,7 @@
             this.bunifuMaterialTextbox3.TabIndex = 29;
             this.bunifuMaterialTextbox3.Text = "bunifuMaterialTextbox3";
             this.bunifuMaterialTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuMaterialTextbox3.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox3_OnValueChanged);
             // 
             // label5
             // 
@@ -207,6 +211,7 @@
             this.label5.Size = new System.Drawing.Size(111, 26);
             this.label5.TabIndex = 30;
             this.label5.Text = "Publisher";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // gunaDataGridView1
             // 
@@ -265,6 +270,7 @@
             this.gunaDataGridView1.ThemeStyle.RowsStyle.Height = 24;
             this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gunaDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gunaDataGridView1_CellContentClick);
             // 
             // label8
             // 
@@ -313,6 +319,7 @@
             this.button1.TabIndex = 37;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -327,6 +334,7 @@
             this.button2.TabIndex = 38;
             this.button2.Text = "EDIT";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -341,6 +349,7 @@
             this.button3.TabIndex = 39;
             this.button3.Text = "EDIT";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -355,6 +364,7 @@
             this.button4.TabIndex = 41;
             this.button4.Text = "HOME";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label7
             // 
@@ -367,6 +377,7 @@
             this.label7.Size = new System.Drawing.Size(104, 26);
             this.label7.TabIndex = 42;
             this.label7.Text = "Quantity";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // bunifuMaterialTextbox6
             // 
@@ -387,6 +398,7 @@
             this.bunifuMaterialTextbox6.TabIndex = 43;
             this.bunifuMaterialTextbox6.Text = "bunifuMaterialTextbox5";
             this.bunifuMaterialTextbox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuMaterialTextbox6.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox6_OnValueChanged);
             // 
             // Book
             // 
