@@ -34,12 +34,16 @@ namespace SDP_libary_management_system
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Book book = new Book();
+            book.Show();
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            LibrarianForm librarianForm = new LibrarianForm();
+            librarianForm.Show();
+            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -56,6 +60,13 @@ namespace SDP_libary_management_system
         {
             StudentFrom student = new StudentFrom();
             student.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            IssueBookForm bookForm = new IssueBookForm();
+            bookForm.Show();
             this.Hide();
         }
     }

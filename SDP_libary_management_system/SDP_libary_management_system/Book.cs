@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SDP_libary_management_system
 {
@@ -16,7 +18,17 @@ namespace SDP_libary_management_system
         {
             InitializeComponent();
         }
-
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mahfu\Documents\LMSdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False");
+        public void populate()
+        {             con.Open();
+            string query = "select * from BookTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            BookDGV.DataSource = ds.Tables[0];
+            con.Close();
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -34,12 +46,25 @@ namespace SDP_libary_management_system
 
         private void Book_Load(object sender, EventArgs e)
         {
-
+            populate();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if(bookname.Text==""|| author.Text==""||publisher.Text==""|| price.Text=="" || quantity.Text=="")
+            {
+                MessageBox.Show("Missing Information");
+            }
+            else
+            {
+                con.Open();
+                string query = "insert into BookTbl values('" + bookname.Text + "','" + author.Text + "','" + publisher.Text + "'," + price.Text + "," + quantity.Text + ")";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Book Added Successfully");
+                con.Close();
+                populate();
+            }
         }
 
         private void bunifuMaterialTextbox6_OnValueChanged(object sender, EventArgs e)
@@ -54,7 +79,9 @@ namespace SDP_libary_management_system
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MainForm main = new MainForm();
+            main.Show();
         }
 
         private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -64,12 +91,38 @@ namespace SDP_libary_management_system
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            if (bookname.Text=="")
+            {
+                MessageBox.Show("Enter the Book Name");
+            }
+            else
+            {
+                con.Open();
+                string query = "delete from BookTbl where BookName='" + bookname.Text + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Book Deleted Successfully");
+                con.Close();
+                populate();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if(bookname.Text==""|| author.Text==""||publisher.Text==""|| price.Text=="" || quantity.Text=="")
+            {
+                MessageBox.Show("Missing Information");
+            }
+            else
+            {
+                con.Open();
+                string query = "update BookTbl set Author='" + author.Text + "',Publisher='" + publisher.Text + "',Price=" + price.Text + ",Qty=" + quantity.Text + " where BookName='" + bookname.Text + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Book Updated Successfully");
+                con.Close();
+                populate();
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -95,6 +148,20 @@ namespace SDP_libary_management_system
         private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BookDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bookname.Text= BookDGV.SelectedRows[0].Cells[0].Value.ToString();
+            author.Text = BookDGV.SelectedRows[0].Cells[1].Value.ToString();
+            publisher.Text = BookDGV.SelectedRows[0].Cells[2].Value.ToString();
+            price.Text = BookDGV.SelectedRows[0].Cells[3].Value.ToString();
+            quantity.Text = BookDGV.SelectedRows[0].Cells[4].Value.ToString();
         }
     }
 }

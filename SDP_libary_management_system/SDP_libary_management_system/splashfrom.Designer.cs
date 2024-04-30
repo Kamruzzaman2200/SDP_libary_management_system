@@ -54,7 +54,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(170, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(589, 55);
+            this.label1.Size = new System.Drawing.Size(576, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "BUBT Libary Management";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -69,7 +69,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(342, 33);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Powered By Group-(06)";
+            this.label2.Text = "Powered By Group-(02)";
             // 
             // pictureBox1
             // 
@@ -95,7 +95,7 @@
             this.Percentage.ForeColor = System.Drawing.Color.Black;
             this.Percentage.Location = new System.Drawing.Point(397, 535);
             this.Percentage.Name = "Percentage";
-            this.Percentage.Size = new System.Drawing.Size(41, 32);
+            this.Percentage.Size = new System.Drawing.Size(40, 32);
             this.Percentage.TabIndex = 4;
             this.Percentage.Text = "%";
             // 
@@ -136,7 +136,8 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(342, 33);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Powered By Group-(06)";
+            this.label4.Text = "Powered By Group-(02)";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -146,7 +147,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(259, 308);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(463, 26);
+            this.label5.Size = new System.Drawing.Size(461, 25);
             this.label5.TabIndex = 8;
             this.label5.Text = "Name: MD.Kamruzzaman ID: 22234103167 ";
             // 
@@ -158,7 +159,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(259, 345);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(503, 26);
+            this.label6.Size = new System.Drawing.Size(497, 25);
             this.label6.TabIndex = 9;
             this.label6.Text = "Name: Jannatul Ferdous Riya ID: 22234103135 ";
             // 
@@ -170,7 +171,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(259, 383);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(515, 26);
+            this.label7.Size = new System.Drawing.Size(515, 25);
             this.label7.TabIndex = 10;
             this.label7.Text = "Name: Md.Mahafuzar Rahman ID: 22234103141 ";
             // 
@@ -182,7 +183,7 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(259, 419);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(580, 26);
+            this.label8.Size = new System.Drawing.Size(576, 25);
             this.label8.TabIndex = 11;
             this.label8.Text = "Name: Nafiza Humauara Hasan Neha ID: 22234103306 ";
             // 
@@ -194,7 +195,7 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(259, 456);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(544, 26);
+            this.label9.Size = new System.Drawing.Size(538, 25);
             this.label9.TabIndex = 12;
             this.label9.Text = "Name: Md.Sabbir Hossain Shanto ID: 22234103134 ";
             // 
