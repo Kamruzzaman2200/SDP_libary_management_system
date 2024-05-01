@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Security.Policy;
 namespace SDP_libary_management_system
 {
     public partial class IssueBookForm : Form
@@ -32,14 +34,25 @@ namespace SDP_libary_management_system
         private void FillBook() 
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from BookTbl", con);
+            SqlCommand cmd = new SqlCommand("select BookName from BookTbl where Qty>"+0+"", con);
             SqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
-            dt.Columns.Add("BookId", typeof(int));
+            dt.Columns.Add("BookName", typeof(string));
             dt.Load(rdr);
-            Bookch.ValueMember = "BookId";
+            Bookch.ValueMember = "BookName";
             Bookch.DataSource = dt;
+            con.Close();
+        }
+        public void populate()
+            {
+            con.Open();
+            string query = "select * from IssueTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            IssueBookDGV.DataSource = ds.Tables[0];
             con.Close();
         }
         private void fetchstddata()
@@ -104,11 +117,31 @@ namespace SDP_libary_management_system
         {
 
         }
-
+        private void UpdateBook()
+        {
+            con.Open();
+            string query = "update BookTbl set Qty=Qty-1 where BookName='" + Bookch.SelectedValue.ToString() + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Book Updated Successfully");
+            con.Close();
+        }
+        private void UpdateBookCancle()
+            {
+            con.Open();
+            string bookName = Bookch.SelectedItem != null ? Bookch.SelectedItem.ToString() : string.Empty;
+            string query = "update BookTbl set Qty=Qty+1 where BookName='" + bookName + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Book Updated Successfully");
+            con.Close();
+        }
         private void IssueBookForm_Load(object sender, EventArgs e)
         {
             FillStudents();
             FillBook();
+            populate();
+            
         }
 
         private void StdCb_SelectionChangeCommitted(object sender, EventArgs e)
@@ -118,6 +151,75 @@ namespace SDP_libary_management_system
 
         private void bunifuMaterialTextbox3_OnValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (IssueNumTb.Text == "" || StdnameTb.Text == "" || StdDeptTb.Text == "" || StdphnTb.Text == "")
+            {
+                MessageBox.Show("Missing Information");
+            }
+            else
+            {
+                string issuedate = IssueDate.Value.ToString("yyyy-MM-dd");
+                con.Open();
+
+                int issueNum;
+                if (int.TryParse(IssueNumTb.Text, out issueNum))
+                {
+                    string query = "insert into IssueTbl values(" + issueNum + ",'" + StdCb.SelectedValue.ToString() + "','" + StdnameTb.Text + "','" + StdDeptTb.Text + "','" + StdphnTb.Text + "','" + Bookch.SelectedValue.ToString() + "','" + issuedate + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Book Successfully Issued");
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Issue Number");
+                }
+
+                con.Close();
+                populate();
+                UpdateBook();
+            }
+
+
+        }
+
+        private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(IssueNumTb.Text=="")
+            {
+                MessageBox.Show("Enter Issue Number");
+            }
+            else
+            {
+                con.Open();
+                string query = "delete from IssueTbl where IssueName=" + IssueNumTb.Text + ";";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Book Returned Successfully");
+                con.Close();
+                populate();
+                UpdateBookCancle();
+
+            }
+        }
+
+        private void IssueBookDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            IssueNumTb.Text= IssueBookDGV.SelectedRows[0].Cells[0].Value.ToString();
+            StdCb.SelectedValue = IssueBookDGV.SelectedRows[0].Cells[1].Value.ToString();
+            StdnameTb.Text = IssueBookDGV.SelectedRows[0].Cells[2].Value.ToString();
+            StdDeptTb.Text = IssueBookDGV.SelectedRows[0].Cells[3].Value.ToString();
+            StdphnTb.Text = IssueBookDGV.SelectedRows[0].Cells[4].Value.ToString();
+            Bookch.SelectedValue = IssueBookDGV.SelectedRows[0].Cells[5].Value.ToString();
+            IssueDate.Value = Convert.ToDateTime(IssueBookDGV.SelectedRows[0].Cells[6].Value.ToString());
 
         }
     }
