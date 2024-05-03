@@ -163,5 +163,10 @@ namespace SDP_libary_management_system
             price.Text = BookDGV.SelectedRows[0].Cells[3].Value.ToString();
             quantity.Text = BookDGV.SelectedRows[0].Cells[4].Value.ToString();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

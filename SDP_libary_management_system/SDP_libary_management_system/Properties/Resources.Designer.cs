@@ -59,5 +59,25 @@ namespace SDP_libary_management_system.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2a2d474883e728a28f0aafcfee69a187 {
+            get {
+                object obj = ResourceManager.GetObject("2a2d474883e728a28f0aafcfee69a187", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap animation_800x600__1_ {
+            get {
+                object obj = ResourceManager.GetObject("animation-800x600 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

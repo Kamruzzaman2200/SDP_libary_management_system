@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Security.Policy;
+using System.Collections;
 namespace SDP_libary_management_system
 {
     public partial class IssueBookForm : Form
@@ -21,7 +22,7 @@ namespace SDP_libary_management_system
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mahfu\Documents\LMSdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False");
         private void FillStudents() {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from StudentTbl", con);
+            SqlCommand cmd = new SqlCommand("select StdId from StudentTbl", con);
             SqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -43,7 +44,7 @@ namespace SDP_libary_management_system
             Bookch.ValueMember = "BookName";
             Bookch.DataSource = dt;
             con.Close();
-        }
+        } 
         public void populate()
             {
             con.Open();
@@ -60,13 +61,14 @@ namespace SDP_libary_management_system
             con.Open();
             string query = "select * from StudentTbl where StdId=" + StdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader rdr;
-            rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-                StdnameTb.Text = rdr["StdName"].ToString();
-                StdDeptTb.Text = rdr["StdDep"].ToString();
-                StdphnTb.Text= rdr["StdPhone"].ToString();
+                StdnameTb.Text =  dr["StdName"].ToString();
+                StdDeptTb.Text = dr["StdDep"].ToString();
+                StdphnTb.Text = dr["StdPhone"].ToString();
             }
             con.Close();
         }
@@ -119,23 +121,43 @@ namespace SDP_libary_management_system
         }
         private void UpdateBook()
         {
+            int Qty, newQty;
             con.Open();
-            string query = "update BookTbl set Qty=Qty-1 where BookName='" + Bookch.SelectedValue.ToString() + "'";
+            string query = "select * from BookTbl where BookName='" + Bookch.SelectedValue.ToString() + "'";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Book Updated Successfully");
+            SqlDataReader rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                Qty = Convert.ToInt32(rdr["Qty"].ToString());
+                newQty = Qty - 1;
+                rdr.Close();
+                string query1 = "update BookTbl set Qty=" + newQty + " where BookName='" + Bookch.SelectedValue.ToString() + "'";
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                cmd1.ExecuteNonQuery();
+            }
             con.Close();
         }
         private void UpdateBookCancle()
-            {
+        {
+            int Qty, newQty1;
             con.Open();
-            string bookName = Bookch.SelectedItem != null ? Bookch.SelectedItem.ToString() : string.Empty;
-            string query = "update BookTbl set Qty=Qty+1 where BookName='" + bookName + "'";
+            string query = "select * from BookTbl where BookName='" + Bookch.SelectedValue.ToString() + "'";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Book Updated Successfully");
-            con.Close();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Qty = Convert.ToInt32(dr["Qty"].ToString());
+                newQty1 = Qty + 1;
+                string query1 = "update BookTbl set Qty=" + newQty1 + " where BookName='" + Bookch.SelectedValue.ToString() + "'";
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                cmd1.ExecuteNonQuery();
+
+            }
+
         }
+     
         private void IssueBookForm_Load(object sender, EventArgs e)
         {
             FillStudents();
@@ -168,10 +190,21 @@ namespace SDP_libary_management_system
                 int issueNum;
                 if (int.TryParse(IssueNumTb.Text, out issueNum))
                 {
-                    string query = "insert into IssueTbl values(" + issueNum + ",'" + StdCb.SelectedValue.ToString() + "','" + StdnameTb.Text + "','" + StdDeptTb.Text + "','" + StdphnTb.Text + "','" + Bookch.SelectedValue.ToString() + "','" + issuedate + "')";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Book Successfully Issued");
+                    string checkQuery = "SELECT COUNT(*) FROM IssueTbl WHERE IssueName = " + issueNum;
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, con);
+                    int count = (int)checkCmd.ExecuteScalar();
+
+                    if (count == 0)
+                    {
+                        string query = "insert into IssueTbl values(" + issueNum + ",'" + StdCb.SelectedValue.ToString() + "','" + StdnameTb.Text + "','" + StdDeptTb.Text + "','" + StdphnTb.Text + "','" + Bookch.SelectedValue.ToString() + "','" + issuedate + "')";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Book Successfully Issued");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Issue Number already exists");
+                    }
                 }
                 else
                 {
@@ -182,8 +215,6 @@ namespace SDP_libary_management_system
                 populate();
                 UpdateBook();
             }
-
-
         }
 
         private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
@@ -193,7 +224,7 @@ namespace SDP_libary_management_system
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(IssueNumTb.Text=="")
+            if (IssueNumTb.Text == "")
             {
                 MessageBox.Show("Enter Issue Number");
             }
@@ -218,9 +249,14 @@ namespace SDP_libary_management_system
             StdnameTb.Text = IssueBookDGV.SelectedRows[0].Cells[2].Value.ToString();
             StdDeptTb.Text = IssueBookDGV.SelectedRows[0].Cells[3].Value.ToString();
             StdphnTb.Text = IssueBookDGV.SelectedRows[0].Cells[4].Value.ToString();
-            Bookch.SelectedValue = IssueBookDGV.SelectedRows[0].Cells[5].Value.ToString();
+            Bookch.SelectedValue = IssueBookDGV.SelectedRows[0].Cells[5].Value.ToString(); 
             IssueDate.Value = Convert.ToDateTime(IssueBookDGV.SelectedRows[0].Cells[6].Value.ToString());
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }

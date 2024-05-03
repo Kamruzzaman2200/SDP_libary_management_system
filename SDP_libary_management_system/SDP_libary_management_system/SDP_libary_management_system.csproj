@@ -85,6 +85,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReturnBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnBookForm.Designer.cs">
+      <DependentUpon>ReturnBookForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="splashfrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReturnBookForm.resx">
+      <DependentUpon>ReturnBookForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="splashfrom.resx">
       <DependentUpon>splashfrom.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="StudentFrom.resx">
       <DependentUpon>StudentFrom.cs</DependentUpon>
@@ -141,6 +151,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\animation-800x600 %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2a2d474883e728a28f0aafcfee69a187.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
