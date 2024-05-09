@@ -53,7 +53,9 @@ namespace SDP_libary_management_system
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            AboutUs About = new AboutUs();
+            About.Show();
+            //this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,9 +67,22 @@ namespace SDP_libary_management_system
 
         private void button3_Click(object sender, EventArgs e)
         {
-            IssueBookForm bookForm = new IssueBookForm();
-            bookForm.Show();
+            IssueBookForm Issue = new IssueBookForm();
+            Issue.Show();
             this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReturnBookForm returnForm = new ReturnBookForm();
+            returnForm.Show();
+            this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DashBoard dashBoard = new DashBoard();
+            dashBoard.Show();
         }
     }
 }

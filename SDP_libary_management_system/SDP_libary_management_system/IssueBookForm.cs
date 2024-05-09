@@ -258,5 +258,10 @@ namespace SDP_libary_management_system
         {
              
         }
+
+        private void Bookch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

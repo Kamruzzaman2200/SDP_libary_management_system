@@ -36,14 +36,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.IssueDate = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label6 = new System.Windows.Forms.Label();
             this.Bookch = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.StdCb = new System.Windows.Forms.ComboBox();
             this.StdphnTb = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label7 = new System.Windows.Forms.Label();
             this.StdDeptTb = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -52,16 +51,17 @@
             this.StdnameTb = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.IssueNumTb = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuDatepicker1 = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.ReturnNumTb = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.ReturnDate = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label10 = new System.Windows.Forms.Label();
             this.IssueBookDGV = new Guna.UI.WinForms.GunaDataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ReturnedBookDGV = new Guna.UI.WinForms.GunaDataGridView();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.StdCb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IssueBookDGV)).BeginInit();
@@ -79,6 +79,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1342, 143);
             this.panel1.TabIndex = 45;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1279, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 35);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -101,18 +113,6 @@
             this.label1.Size = new System.Drawing.Size(507, 39);
             this.label1.TabIndex = 4;
             this.label1.Text = "LIBRARY MANAGEMENT SYSTEM";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1279, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 35);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // IssueDate
             // 
@@ -169,24 +169,6 @@
             this.label9.Size = new System.Drawing.Size(82, 25);
             this.label9.TabIndex = 80;
             this.label9.Text = "BOOK";
-            // 
-            // StdCb
-            // 
-            this.StdCb.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
-            this.StdCb.FormattingEnabled = true;
-            this.StdCb.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.StdCb.Location = new System.Drawing.Point(205, 245);
-            this.StdCb.Name = "StdCb";
-            this.StdCb.Size = new System.Drawing.Size(370, 33);
-            this.StdCb.TabIndex = 79;
             // 
             // StdphnTb
             // 
@@ -305,38 +287,38 @@
             this.label3.TabIndex = 71;
             this.label3.Text = "NUM";
             // 
-            // IssueNumTb
+            // ReturnNumTb
             // 
-            this.IssueNumTb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.IssueNumTb.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.IssueNumTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.IssueNumTb.HintForeColor = System.Drawing.Color.Empty;
-            this.IssueNumTb.HintText = "";
-            this.IssueNumTb.isPassword = false;
-            this.IssueNumTb.LineFocusedColor = System.Drawing.Color.Blue;
-            this.IssueNumTb.LineIdleColor = System.Drawing.Color.Gray;
-            this.IssueNumTb.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.IssueNumTb.LineThickness = 3;
-            this.IssueNumTb.Location = new System.Drawing.Point(205, 177);
-            this.IssueNumTb.Margin = new System.Windows.Forms.Padding(4);
-            this.IssueNumTb.Name = "IssueNumTb";
-            this.IssueNumTb.Size = new System.Drawing.Size(370, 44);
-            this.IssueNumTb.TabIndex = 70;
-            this.IssueNumTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ReturnNumTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ReturnNumTb.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.ReturnNumTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ReturnNumTb.HintForeColor = System.Drawing.Color.Empty;
+            this.ReturnNumTb.HintText = "";
+            this.ReturnNumTb.isPassword = false;
+            this.ReturnNumTb.LineFocusedColor = System.Drawing.Color.Blue;
+            this.ReturnNumTb.LineIdleColor = System.Drawing.Color.Gray;
+            this.ReturnNumTb.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.ReturnNumTb.LineThickness = 3;
+            this.ReturnNumTb.Location = new System.Drawing.Point(205, 177);
+            this.ReturnNumTb.Margin = new System.Windows.Forms.Padding(4);
+            this.ReturnNumTb.Name = "ReturnNumTb";
+            this.ReturnNumTb.Size = new System.Drawing.Size(370, 44);
+            this.ReturnNumTb.TabIndex = 70;
+            this.ReturnNumTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuDatepicker1
+            // ReturnDate
             // 
-            this.bunifuDatepicker1.BackColor = System.Drawing.Color.SeaGreen;
-            this.bunifuDatepicker1.BorderRadius = 0;
-            this.bunifuDatepicker1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker1.FormatCustom = null;
-            this.bunifuDatepicker1.Location = new System.Drawing.Point(205, 596);
-            this.bunifuDatepicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuDatepicker1.Name = "bunifuDatepicker1";
-            this.bunifuDatepicker1.Size = new System.Drawing.Size(370, 44);
-            this.bunifuDatepicker1.TabIndex = 85;
-            this.bunifuDatepicker1.Value = new System.DateTime(2024, 3, 25, 2, 44, 41, 451);
+            this.ReturnDate.BackColor = System.Drawing.Color.SeaGreen;
+            this.ReturnDate.BorderRadius = 0;
+            this.ReturnDate.ForeColor = System.Drawing.Color.White;
+            this.ReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.ReturnDate.FormatCustom = null;
+            this.ReturnDate.Location = new System.Drawing.Point(205, 596);
+            this.ReturnDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReturnDate.Name = "ReturnDate";
+            this.ReturnDate.Size = new System.Drawing.Size(370, 44);
+            this.ReturnDate.TabIndex = 85;
+            this.ReturnDate.Value = new System.DateTime(2024, 3, 25, 2, 44, 41, 451);
             // 
             // label10
             // 
@@ -408,6 +390,7 @@
             this.IssueBookDGV.ThemeStyle.RowsStyle.Height = 30;
             this.IssueBookDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.IssueBookDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.IssueBookDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IssueBookDGV_CellContentClick);
             // 
             // label11
             // 
@@ -501,26 +484,13 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(100, 757);
+            this.button4.Location = new System.Drawing.Point(163, 758);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(194, 41);
+            this.button4.Size = new System.Drawing.Size(153, 41);
             this.button4.TabIndex = 92;
             this.button4.Text = "HOME";
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Crimson;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(382, 757);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 41);
-            this.button3.TabIndex = 91;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -533,28 +503,61 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(252, 41);
             this.button1.TabIndex = 90;
-            this.button1.Text = "Issue Book";
+            this.button1.Text = "Return Book";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.HotPink;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(380, 758);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 41);
+            this.button2.TabIndex = 93;
+            this.button2.Text = "Print";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // StdCb
+            // 
+            this.StdCb.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
+            this.StdCb.FormattingEnabled = true;
+            this.StdCb.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.StdCb.Location = new System.Drawing.Point(205, 245);
+            this.StdCb.Name = "StdCb";
+            this.StdCb.Size = new System.Drawing.Size(370, 33);
+            this.StdCb.TabIndex = 94;
             // 
             // ReturnBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1342, 834);
+            this.Controls.Add(this.StdCb);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ReturnedBookDGV);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.IssueBookDGV);
-            this.Controls.Add(this.bunifuDatepicker1);
+            this.Controls.Add(this.ReturnDate);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.IssueDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Bookch);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.StdCb);
             this.Controls.Add(this.StdphnTb);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.StdDeptTb);
@@ -563,10 +566,11 @@
             this.Controls.Add(this.StdnameTb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.IssueNumTb);
+            this.Controls.Add(this.ReturnNumTb);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReturnBookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReturnBookForm";
             this.Load += new System.EventHandler(this.ReturnBookForm_Load);
             this.panel1.ResumeLayout(false);
@@ -589,7 +593,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox Bookch;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox StdCb;
         private Bunifu.Framework.UI.BunifuMaterialTextbox StdphnTb;
         private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuMaterialTextbox StdDeptTb;
@@ -598,15 +601,16 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox StdnameTb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox IssueNumTb;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker1;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox ReturnNumTb;
+        private Bunifu.Framework.UI.BunifuDatepicker ReturnDate;
         private System.Windows.Forms.Label label10;
         private Guna.UI.WinForms.GunaDataGridView IssueBookDGV;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private Guna.UI.WinForms.GunaDataGridView ReturnedBookDGV;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox StdCb;
     }
 }
