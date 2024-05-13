@@ -62,5 +62,11 @@ namespace SDP_libary_management_system
         {
 
         }
+
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+        }
     }
 }

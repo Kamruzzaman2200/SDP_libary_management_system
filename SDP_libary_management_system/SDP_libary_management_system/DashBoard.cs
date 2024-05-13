@@ -57,5 +57,10 @@ namespace SDP_libary_management_system
             ReturnBooklbl.Text = dt4.Rows[0][0].ToString();
             con.Close();
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
     }
 }

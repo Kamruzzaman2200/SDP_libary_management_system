@@ -54,6 +54,8 @@
             this.StudentDGV = new Guna.UI.WinForms.GunaDataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.Stdsec = new System.Windows.Forms.ComboBox();
+            this.StdCb = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDGV)).BeginInit();
@@ -118,7 +120,7 @@
             this.StdId.LineIdleColor = System.Drawing.Color.Gray;
             this.StdId.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.StdId.LineThickness = 3;
-            this.StdId.Location = new System.Drawing.Point(270, 194);
+            this.StdId.Location = new System.Drawing.Point(270, 185);
             this.StdId.Margin = new System.Windows.Forms.Padding(4);
             this.StdId.Name = "StdId";
             this.StdId.Size = new System.Drawing.Size(370, 44);
@@ -132,7 +134,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(79, 212);
+            this.label3.Location = new System.Drawing.Point(79, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 25);
             this.label3.TabIndex = 6;
@@ -144,7 +146,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(84, 280);
+            this.label4.Location = new System.Drawing.Point(86, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 25);
             this.label4.TabIndex = 7;
@@ -162,10 +164,10 @@
             this.StdName.LineIdleColor = System.Drawing.Color.Gray;
             this.StdName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.StdName.LineThickness = 3;
-            this.StdName.Location = new System.Drawing.Point(270, 262);
+            this.StdName.Location = new System.Drawing.Point(270, 299);
             this.StdName.Margin = new System.Windows.Forms.Padding(4);
             this.StdName.Name = "StdName";
-            this.StdName.Size = new System.Drawing.Size(370, 44);
+            this.StdName.Size = new System.Drawing.Size(370, 35);
             this.StdName.TabIndex = 8;
             this.StdName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -430,12 +432,46 @@
             this.Stdsec.Size = new System.Drawing.Size(370, 33);
             this.Stdsec.TabIndex = 15;
             // 
+            // StdCb
+            // 
+            this.StdCb.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
+            this.StdCb.FormattingEnabled = true;
+            this.StdCb.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.StdCb.Location = new System.Drawing.Point(270, 259);
+            this.StdCb.Name = "StdCb";
+            this.StdCb.Size = new System.Drawing.Size(370, 33);
+            this.StdCb.TabIndex = 63;
+            this.StdCb.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.StdCb.SelectionChangeCommitted += new System.EventHandler(this.StdCb_SelectionChangeCommitted);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(79, 259);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 25);
+            this.label9.TabIndex = 62;
+            this.label9.Text = "USN";
+            // 
             // StudentFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1342, 834);
+            this.Controls.Add(this.StdCb);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.StudentDGV);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button4);
@@ -493,5 +529,7 @@
         private Guna.UI.WinForms.GunaDataGridView StudentDGV;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox Stdsec;
+        private System.Windows.Forms.ComboBox StdCb;
+        private System.Windows.Forms.Label label9;
     }
 }

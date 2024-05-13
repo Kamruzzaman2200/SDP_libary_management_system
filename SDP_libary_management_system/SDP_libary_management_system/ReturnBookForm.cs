@@ -72,6 +72,22 @@ namespace SDP_libary_management_system
 
             con.Close();
         }
+        private void fetchstddata()
+        {
+            con.Open();
+            string query = "select * from StudentTbl where StdId=" + StdCb.SelectedValue.ToString() + "";
+            SqlCommand cmd = new SqlCommand(query, con);
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                StdnameTb.Text = dr["StdName"].ToString();
+                StdDeptTb.Text = dr["StdDep"].ToString();
+                StdphnTb.Text = dr["StdPhone"].ToString();
+            }
+            con.Close();
+        }
 
 
         private void ReturnBookForm_Load(object sender, EventArgs e)
@@ -154,6 +170,15 @@ namespace SDP_libary_management_system
             this.Hide();
             MainForm main = new MainForm();
             main.Show();
+        }
+        private void StdCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            fetchstddata();
+        }
+
+        private void StdCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

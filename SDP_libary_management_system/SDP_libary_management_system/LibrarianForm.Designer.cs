@@ -66,6 +66,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1342, 143);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -89,6 +90,7 @@
             this.label2.Size = new System.Drawing.Size(196, 39);
             this.label2.TabIndex = 5;
             this.label2.Text = "LIBRARIANS";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -100,6 +102,7 @@
             this.label1.Size = new System.Drawing.Size(507, 39);
             this.label1.TabIndex = 4;
             this.label1.Text = "LIBRARY MANAGEMENT SYSTEM";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -109,6 +112,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1342, 100);
             this.panel2.TabIndex = 25;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // button4
             // 
@@ -248,6 +252,7 @@
             this.Libphone.Size = new System.Drawing.Size(370, 44);
             this.Libphone.TabIndex = 51;
             this.Libphone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Libphone.OnValueChanged += new System.EventHandler(this.Libphone_OnValueChanged);
             // 
             // label8
             // 
@@ -260,6 +265,7 @@
             this.label8.Size = new System.Drawing.Size(76, 25);
             this.label8.TabIndex = 50;
             this.label8.Text = "Phone";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label5
             // 
@@ -272,6 +278,7 @@
             this.label5.Size = new System.Drawing.Size(109, 25);
             this.label5.TabIndex = 49;
             this.label5.Text = "Password";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Libpass
             // 
@@ -291,6 +298,7 @@
             this.Libpass.Size = new System.Drawing.Size(370, 44);
             this.Libpass.TabIndex = 48;
             this.Libpass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Libpass.OnValueChanged += new System.EventHandler(this.Libpass_OnValueChanged);
             // 
             // LibName
             // 
@@ -310,6 +318,7 @@
             this.LibName.Size = new System.Drawing.Size(370, 44);
             this.LibName.TabIndex = 47;
             this.LibName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.LibName.OnValueChanged += new System.EventHandler(this.LibName_OnValueChanged);
             // 
             // label4
             // 
@@ -335,6 +344,7 @@
             this.label3.Size = new System.Drawing.Size(38, 25);
             this.label3.TabIndex = 45;
             this.label3.Text = "ID";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // LibId
             // 

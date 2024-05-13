@@ -19,7 +19,36 @@ namespace SDP_libary_management_system
             InitializeComponent();
         }
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mahfu\Documents\LMSdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False");
-
+        private void FillStudents()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select StdId from StudentTbl", con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("StdId", typeof(int));
+            dt.Load(rdr);
+            StdCb.ValueMember = "StdId";
+            StdCb.DataSource = dt;
+            con.Close();
+        }
+        private void fetchstddata()
+        {
+            con.Open();
+            string query = "select * from StudentTbl where StdId=" + StdCb.SelectedValue.ToString() + "";
+            SqlCommand cmd = new SqlCommand(query, con);
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                StdId.Text = dr["StdId"].ToString();
+                StdName.Text = dr["StdName"].ToString();
+                StdDep.Text = dr["StdDep"].ToString();
+                Stdphone.Text = dr["StdPhone"].ToString();
+            }
+            con.Close();
+        }
         private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
         {
 
@@ -34,6 +63,10 @@ namespace SDP_libary_management_system
         {
 
         }
+        private void StdCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            fetchstddata();
+        }
 
         private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -42,6 +75,7 @@ namespace SDP_libary_management_system
 
         private void StudentFrom_Load(object sender, EventArgs e)
         {
+            FillStudents();
             populate();
         }
 
@@ -93,6 +127,7 @@ namespace SDP_libary_management_system
         private void LibrarianDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             StdId.Text= StudentDGV.SelectedRows[0].Cells[0].Value.ToString();
+            StdCb.SelectedValue = StudentDGV.SelectedRows[0].Cells[0].Value.ToString();
             StdName.Text = StudentDGV.SelectedRows[0].Cells[1].Value.ToString();
             StdDep.Text = StudentDGV.SelectedRows[0].Cells[2].Value.ToString();
             Stdsem.Text = StudentDGV.SelectedRows[0].Cells[3].Value.ToString();
