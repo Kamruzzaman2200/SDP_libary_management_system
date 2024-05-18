@@ -19,6 +19,39 @@ namespace SDP_libary_management_system
             InitializeComponent();
         }
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mahfu\Documents\LMSdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False");
+        private void FillStudents()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select BookName from BookTbl", con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("BookName", typeof(string));
+            dt.Load(rdr);
+            StdCb.ValueMember = "BookName";
+            StdCb.DataSource = dt;
+            con.Close();
+        }
+        private void fetchstddata()
+        {
+            con.Open();
+            string query = "select * from BookTbl where BookName = @bookName";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@bookName", StdCb.SelectedValue.ToString());
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                bookname.Text = dr["BookName"].ToString();
+                author.Text = dr["Author"].ToString();
+                publisher.Text = dr["Publisher"].ToString();
+                price.Text = dr["Price"].ToString();
+                quantity.Text = dr["Qty"].ToString();
+            }
+            con.Close();
+        }
+
         public void populate()
         {             con.Open();
             string query = "select * from BookTbl";
@@ -38,7 +71,10 @@ namespace SDP_libary_management_system
         {
 
         }
-
+        private void StdCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            fetchstddata();
+        }
         private void label8_Click(object sender, EventArgs e)
         {
 
@@ -46,6 +82,7 @@ namespace SDP_libary_management_system
 
         private void Book_Load(object sender, EventArgs e)
         {
+            FillStudents();
             populate();
         }
 

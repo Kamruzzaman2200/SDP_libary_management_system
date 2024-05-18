@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Book));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Book));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -51,10 +52,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.quantity = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.BookDGV = new Guna.UI.WinForms.GunaDataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StdCb = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BookDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,6 +71,18 @@
             this.panel1.Size = new System.Drawing.Size(1342, 143);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1279, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 35);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -113,7 +127,7 @@
             this.bookname.LineIdleColor = System.Drawing.Color.Gray;
             this.bookname.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.bookname.LineThickness = 3;
-            this.bookname.Location = new System.Drawing.Point(251, 185);
+            this.bookname.Location = new System.Drawing.Point(251, 225);
             this.bookname.Margin = new System.Windows.Forms.Padding(4);
             this.bookname.Name = "bookname";
             this.bookname.Size = new System.Drawing.Size(370, 44);
@@ -127,7 +141,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(60, 203);
+            this.label3.Location = new System.Drawing.Point(65, 243);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 25);
             this.label3.TabIndex = 26;
@@ -140,7 +154,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(65, 271);
+            this.label4.Location = new System.Drawing.Point(65, 290);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 25);
             this.label4.TabIndex = 27;
@@ -159,7 +173,7 @@
             this.author.LineIdleColor = System.Drawing.Color.Gray;
             this.author.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.author.LineThickness = 3;
-            this.author.Location = new System.Drawing.Point(251, 253);
+            this.author.Location = new System.Drawing.Point(251, 271);
             this.author.Margin = new System.Windows.Forms.Padding(4);
             this.author.Name = "author";
             this.author.Size = new System.Drawing.Size(370, 44);
@@ -193,7 +207,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(60, 345);
+            this.label5.Location = new System.Drawing.Point(67, 346);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 25);
             this.label5.TabIndex = 30;
@@ -318,7 +332,7 @@
             this.quantity.LineIdleColor = System.Drawing.Color.Gray;
             this.quantity.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.quantity.LineThickness = 3;
-            this.quantity.Location = new System.Drawing.Point(251, 467);
+            this.quantity.Location = new System.Drawing.Point(251, 466);
             this.quantity.Margin = new System.Windows.Forms.Padding(4);
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(370, 44);
@@ -386,23 +400,45 @@
             this.BookDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.BookDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BookDGV_CellContentClick);
             // 
-            // pictureBox1
+            // StdCb
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1279, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 35);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.StdCb.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
+            this.StdCb.FormattingEnabled = true;
+            this.StdCb.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.StdCb.Location = new System.Drawing.Point(251, 185);
+            this.StdCb.Name = "StdCb";
+            this.StdCb.Size = new System.Drawing.Size(370, 33);
+            this.StdCb.TabIndex = 65;
+            this.StdCb.SelectedIndexChanged += new System.EventHandler(this.bunifuMaterialTextbox6_OnValueChanged);
+            this.StdCb.SelectionChangeCommitted += new System.EventHandler(this.StdCb_SelectionChangeCommitted);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(70, 185);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 25);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "USN";
             // 
             // Book
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1342, 834);
+            this.Controls.Add(this.StdCb);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.BookDGV);
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.label7);
@@ -426,8 +462,8 @@
             this.Load += new System.EventHandler(this.Book_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BookDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BookDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,5 +491,7 @@
         private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuMaterialTextbox quantity;
         private Guna.UI.WinForms.GunaDataGridView BookDGV;
+        private System.Windows.Forms.ComboBox StdCb;
+        private System.Windows.Forms.Label label9;
     }
 }
